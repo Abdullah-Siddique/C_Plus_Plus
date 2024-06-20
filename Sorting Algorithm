@@ -236,3 +236,13 @@ int main() {
 
     return 0;
 }
+/* 
+Bubble Sort: Repeatedly swaps adjacent elements if they are in the wrong order.
+Selection Sort: Selects the minimum element from the unsorted part and swaps it with the first unsorted element.
+Insertion Sort: Builds the sorted array one element at a time by inserting elements into their correct positions.
+Merge Sort: Divides the array into two halves, recursively sorts them, and then merges the sorted halves.
+Quick Sort: Picks a pivot element, partitions the array around the pivot, and recursively sorts the subarrays.
+Heap Sort: Builds a max heap from the array and repeatedly extracts the maximum element to sort the array.
+Shell Sort: Generalization of insertion sort that allows the exchange of far-apart elements.
+Radix Sort: Sorts the numbers digit by digit starting from the least significant digit.
+*/
