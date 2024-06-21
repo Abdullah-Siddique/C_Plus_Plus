@@ -36,6 +36,46 @@ void demonstrateIO() {
     cout << "Hello, " << name << "! You are " << age << " years old." << endl;
 }
 
+// Base class: Person
+class Person {
+protected:
+    string name;
+    int age;
+public:
+    Person(string n, int a) : name(n), age(a) {} // Constructor with initialization list
+
+    // Virtual function to display information (polymorphism)
+    virtual void displayInfo() {
+        cout << "Name: " << name << ", Age: " << age << endl;
+    }
+};
+
+// Derived class: Student (inherits from Person)
+class Student : public Person {
+private:
+    string studentID;
+public:
+    Student(string n, int a, string id) : Person(n, a), studentID(id) {} // Constructor
+
+    // Override the displayInfo function
+    void displayInfo() override {
+        cout << "Name: " << name << ", Age: " << age << ", Student ID: " << studentID << endl;
+    }
+};
+
+// Derived class: Teacher (inherits from Person)
+class Teacher : public Person {
+private:
+    string subject;
+public:
+    Teacher(string n, int a, string subj) : Person(n, a), subject(subj) {} // Constructor
+
+    // Override the displayInfo function
+    void displayInfo() override {
+        cout << "Name: " << name << ", Age: " << age << ", Subject: " << subject << endl;
+    }
+};
+
 // Main function - the starting point of the program
 int main() {
     // Print a welcome message
@@ -81,7 +121,20 @@ int main() {
         }
     } while (num != 0); // Continue the loop until the user enters 0
     
+    // Create objects of Person, Student, and Teacher classes
+    Person p1("John Doe", 30);
+    Student s1("Jane Smith", 20, "S12345");
+    Teacher t1("Dr. Brown", 50, "Physics");
+
+    // Use polymorphism to display information
+    Person* people[3] = { &p1, &s1, &t1 };
+
+    for (int i = 0; i < 3; ++i) {
+        people[i]->displayInfo(); // Call the appropriate displayInfo function
+    }
+
     // End of the program
     cout << "Goodbye!" << endl;
     return 0; // Return 0 to indicate successful execution
 }
+
