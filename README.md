@@ -4,38 +4,41 @@ This repository contains various practice codes for different aspects of C++ pro
 
 ## Contents
 
-1. **Basic**
+--> **Basic**
    - Contains basic C++ syntax and examples to get started with C++ programming.
 
-2. **Complete STL**
+--> **Complete STL**
    - A complete set of Standard Template Library (STL) code examples, except vector.
 
-3. **Function**
+--> **Function**
    - Demonstrates various aspects of C++ functions including basic functions, overloading, inline functions, recursion, default arguments, reference parameters, lambda functions, function templates, and function pointers.
 
-4. **Inheritance_1**
+--> **Inheritance_1**
    - Covers basic inheritance in C++ with examples.
 
-5. **Inheritance_2**
+--> **Inheritance_2**
    - More advanced inheritance concepts in C++.
 
-6. **Loops**
+--> **Loops**
    - Examples of different types of loops in C++ including for loop, while loop, do-while loop, range-based for loop, and nested loops.
 
-7. **Preprocessor**
+--> **Preprocessor**
    - Explains the use of preprocessor directives and macros in C++.
 
-8. **Sorting Algorithm**
+--> **Sorting Algorithm**
    - Contains implementations of various sorting algorithms including Bubble Sort, Selection Sort, Insertion Sort, Merge Sort, Quick Sort, Heap Sort, and Radix Sort.
 
-9. **Sorting Array**
+--> **Sorting Array**
    - Demonstrates how to sort arrays using different sorting techniques.
 
-10. **Vector**
+--> **Vector**
     - Examples related to the usage of vectors in C++ STL.
       
-11. **Constructor**
+--> **Constructor**
     - Example of a constructor in a class.
+
+--> **DFS**
+    - Depth First Search implementation using C++.
 
 ## How to Use
 
