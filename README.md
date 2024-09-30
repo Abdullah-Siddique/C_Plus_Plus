@@ -60,5 +60,6 @@ Feel free to fork this repository, make your changes, and create a pull request.
 
 ## License
 
-This project is licensed under a **Proprietary License**. 
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 
