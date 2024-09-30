@@ -60,5 +60,5 @@ Feel free to fork this repository, make your changes, and create a pull request.
 
 ## License
 
-This project is done by Abdullah Siddique.
+This project is licensed under a **Proprietary License**. 
 
