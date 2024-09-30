@@ -26,7 +26,7 @@ vector<vector<int>> graph = {
     {1},       // Neighbors of vertex 3
     {1, 5},    // Neighbors of vertex 4
     {4}        // Neighbors of vertex 5
-}
+};
 
     
     cout << "DFS Traversal: "; // DFS Traversal: 0 2 1 4 5 3 
