@@ -1,3 +1,22 @@
+/*
+Graph:
+       0
+      / \
+     1   2
+    / \
+   3   4
+        \
+         5
+
+Adjacency List:
+0 -> 1 2
+1 -> 0 3 4
+2 -> 0
+3 -> 1
+4 -> 1 5
+5 -> 4
+    
+/*
 #include <bits/stdc++.h>
 using namespace std;
 
