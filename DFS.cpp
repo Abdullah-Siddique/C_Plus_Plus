@@ -1,3 +1,32 @@
+/*
+Graph:
+       0
+      / \
+     1   2
+    / \
+   3   4
+        \
+         5
+
+Adjacency List:
+0 -> 1 2
+1 -> 0 3 4
+2 -> 0
+3 -> 1
+4 -> 1 5
+5 -> 4
+
+0 to 2 --->Traverse
+2 to 0 --->Backtrack
+0 to 1 --->Traverse
+1 to 4 --->Traverse
+4 to 5 --->Traverse
+5 to 4 --->Backtrack
+4 to 1 --->Backtrack
+1 to 3 --->Traverse
+
+*/
+
 #include <bits/stdc++.h>
 using namespace std;
 void DFS(int start, vector<vector<int>>& adj_list){
@@ -35,23 +64,3 @@ vector<vector<int>> graph = {
     return 0;
 } 
 
-/*
-Graph:
-       0
-      / \
-     1   2
-    / \
-   3   4
-        \
-         5
-
-0 to 2 --->Traverse
-2 to 0 --->Backtrack
-0 to 1 --->Traverse
-1 to 4 --->Traverse
-4 to 5 --->Traverse
-5 to 4 --->Backtrack
-4 to 1 --->Backtrack
-1 to 3 --->Traverse
-
-*/
