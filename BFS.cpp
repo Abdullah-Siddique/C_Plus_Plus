@@ -15,7 +15,18 @@ Adjacency List:
 3 -> 1
 4 -> 1 5
 5 -> 4
-    
+
+0 to 1 --->Traverse     
+0 to 2 --->Traverse
+1 to 3 --->Traverse
+1 to 4 --->Traverse
+4 to 5 --->Traverse
+5 to 4 --->Backtrack
+4 to 1 --->Backtrack
+3 to 1 --->Backtrack
+2 to 0 --->Backtrack
+
+       
 /*
 #include <bits/stdc++.h>
 using namespace std;
