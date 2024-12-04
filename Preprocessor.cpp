@@ -1,27 +1,26 @@
-#include <iostream>
-#include <cmath> 
+#include <bits/stdc++.h>
 
-// 1. Define Constants
+// Define Constants
 #define PI 3.14159
 #define EULER 2.71828
 
-// 2. Macro Functions
+// Macro Functions
 #define SQUARE(x) ((x) * (x))
 #define CUBE(x) ((x) * (x) * (x))
 
-// 3. Conditional Compilation
+// Conditional Compilation
 #define DEBUG
 
-// 4. File Inclusion
+// File Inclusion
 #include <string>
 
-// 5. Inline Code with Preprocessor
+// Inline Code with Preprocessor
 #define PRINT_VAR(var) std::cout << #var << " = " << var << std::endl
 
-// 6. Stringizing Operator
+// Stringizing Operator
 #define TO_STRING(x) #x
 
-// 7. Token Pasting
+// Token Pasting
 #define MAKE_UNIQUE(name) name##__LINE__
 
 // 8. Undefining Macros
