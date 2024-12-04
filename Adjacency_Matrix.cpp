@@ -6,6 +6,21 @@ B -> A, D, C
 C -> B, D, E
 D -> A, B, C, E
 E -> C, D
+
+You may fall in confusion seeing add_edge function. 
+This is called lambda function. A lambda function 
+is a short, unnamed function that you can define 
+inline in our code. Let's see its syntax:
+[capture list] (parameters) -> return type { body of the function }
+
+ In this code:
+ auto add_edge = [&](int u, int v) { ... };
+ `auto`: Automatically deduces the type of the lambda.
+ `[&]`: The "capture list" specifies that the lambda 
+        can access all variables by reference from the surrounding scope.
+ `(int u, int v)`: The parameters of the lambda function.
+ `{ body }`: The actual code that executes when the lambda is called.
+
 */
 
 #include <bits/stdc++.h>
