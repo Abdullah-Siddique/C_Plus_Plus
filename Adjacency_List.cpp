@@ -9,6 +9,16 @@ E -> C, D
 Reference:
 A -> 0, B -> 1, C -> 2, D -> 3, E -> 4
 
+Here we have used the concept of "Array of 
+vector". Let me clarify about it. Suppose,
+you have an array of fixed size(e.g. here is mx).
+Each element of the array is a distinct vector 
+itself. We can dynamically change the size of
+each vector as we need. Consider each element
+of the array is a node. As we know that in
+graph every node has its neighbour nodes. 
+Those neighbour nodes are our vectors which
+can be any size of.
 */
 
 #include<bits/stdc++.h>
