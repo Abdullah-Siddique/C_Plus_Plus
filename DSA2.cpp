@@ -183,6 +183,8 @@ vector<int> topologicalSort(vector<vector<int>>& adj, int V) {
 }
 
 int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
     cout << "Testing Binary Indexed Tree (BIT)" << endl;
     BIT bit(10);
     bit.update(1, 5);
