@@ -49,12 +49,12 @@ void DFS(int start, vector<vector<int>>& adj_list){
 int main() {
     
 vector<vector<int>> graph = {
-    {1, 2},    // Neighbors of vertex 0
-    {0, 3, 4}, // Neighbors of vertex 1
-    {0},       // Neighbors of vertex 2
-    {1},       // Neighbors of vertex 3
-    {1, 5},    // Neighbors of vertex 4
-    {4}        // Neighbors of vertex 5
+    {1, 2},    // Neighbors of vertex 0 -> graph[0]
+    {0, 3, 4}, // Neighbors of vertex 1 -> graph[1]
+    {0},       // Neighbors of vertex 2 -> graph[2]
+    {1},       // Neighbors of vertex 3 -> graph[3]
+    {1, 5},    // Neighbors of vertex 4 -> graph[4]
+    {4}        // Neighbors of vertex 5 -> graph[5]
 };
 
     
