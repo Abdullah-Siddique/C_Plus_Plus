@@ -1,10 +1,9 @@
 #include <iostream>
 #include <vector>
-#include <algorithm> // For std::sort
+#include <algorithm> 
 
 using namespace std;
 
-// Utility function to print the array
 void printArray(const vector<int>& arr) {
     for (int num : arr) {
         cout << num << " ";
