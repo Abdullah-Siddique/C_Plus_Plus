@@ -220,7 +220,6 @@ int main() {
         cout << endl;
     }
 
-    // Testing Bellman-Ford
     cout << "\nTesting Bellman-Ford Algorithm" << endl;
     vector<vector<int>> edges = {
         {0, 1, -1},
