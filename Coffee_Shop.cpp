@@ -1,6 +1,5 @@
-#include <bits/stdc++.h>
+#include <bits/stdc++.h> 
 using namespace std;
-typedef long long ll;
 
 struct MenuItem {
     string name;
@@ -85,7 +84,6 @@ void CoffeeShop::displayBill() {
     }
     cout << "Total Bill: $" << fixed << setprecision(2) << totalBill << endl;
 
-
     if (rewardPoints >= 10) {
         cout << "Congratulations! You have enough reward points to redeem a $5 discount!" << endl;
         cout << "Do you want to redeem your points? (y/n): ";
@@ -99,8 +97,6 @@ void CoffeeShop::displayBill() {
     }
 
     cout << "Thank you for visiting our coffee shop!" << endl;
-
-
     order.clear();
     totalBill = 0.0;
 }
@@ -145,9 +141,6 @@ void CoffeeShop::displayRewards() {
 }
 
 int main() {
-  ios_base::sync_with_stdio(false);
-  cin.tie(nullptr);
-  
     CoffeeShop shop;
     int choice;
 
