@@ -26,10 +26,10 @@ vector<int> suffix_array(string s) {
     }
     
     int k = 0;
-    while ((2 * (1 << k)) / 2 < n) {
+    while (pow(2, k) < n) {
         vector<pair<pair<int, int>, int>> b(n);
         for (int i = 0; i < n; i++) {
-            int second_rank_index = p[i] + (2 * (1 << k)) / 2;
+            int second_rank_index = p[i] + pow(2, k);
             if (second_rank_index >= n) {
                 second_rank_index = 0;
             }
