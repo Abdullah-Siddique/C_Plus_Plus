@@ -74,6 +74,8 @@ public:
             }
         }
         cout << "Contact added successfully!\n";
+        saveToFile("contacts.html");
+        saveToTextFile("contacts.txt");
     }
 
     void viewContacts() {
@@ -137,6 +139,8 @@ public:
                 }
                 delete current;
                 cout << "Contact deleted successfully!\n";
+                saveToFile("contacts.html");
+                saveToTextFile("contacts.txt");
                 return;
             }
             current = current->next;
@@ -173,6 +177,8 @@ public:
                 if (!address.empty()) current->address = address;
 
                 cout << "Contact updated successfully!\n";
+                saveToFile("contacts.html");
+                saveToTextFile("contacts.txt");
                 return;
             }
             current = current->next;
@@ -199,9 +205,11 @@ public:
             }
         } while (swapped);
         cout << "Contacts sorted by phone number!\n";
+        saveToFile("contacts.html");
+        saveToTextFile("contacts.txt");
     }
 
-    void saveToFile(const string& filename) {
+    void saveToTextFile(const string& filename) {
         ofstream outFile(filename);
         if (!outFile) {
             cout << "Error opening file for writing!\n";
@@ -214,8 +222,157 @@ public:
             outFile << current->phone << "\n";
             outFile << current->email << "\n";
             outFile << current->address << "\n";
+            outFile << "----\n";
             current = current->next;
         }
+        outFile.close();
+        cout << "Contacts saved to " << filename << "!\n";
+    }
+
+    void saveToFile(const string& filename) {
+        ofstream outFile(filename);
+        if (!outFile) {
+            cout << "Error opening file for writing!\n";
+            return;
+        }
+
+        outFile << "<!DOCTYPE html>\n";
+        outFile << "<html lang=\"en\">\n";
+        outFile << "<head>\n";
+        outFile << "<meta charset=\"UTF-8\">\n";
+        outFile << "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n";
+        outFile << "<title>Contact Manager</title>\n";
+        outFile << "<style>\n";
+        outFile << "* { margin: 0; padding: 0; box-sizing: border-box; }\n";
+        outFile << "body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; color: #333; }\n";
+        outFile << ".container { max-width: 1200px; margin: 0 auto; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); overflow: hidden; }\n";
+        outFile << ".header { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 30px; text-align: center; color: white; }\n";
+        outFile << ".header h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 10px; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }\n";
+        outFile << ".header p { font-size: 1.1rem; opacity: 0.9; }\n";
+        outFile << ".content { padding: 40px; }\n";
+        outFile << ".table-container { overflow-x: auto; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }\n";
+        outFile << "table { width: 100%; border-collapse: collapse; background: white; font-size: 16px; }\n";
+        outFile << "th { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px 15px; text-align: left; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; position: sticky; top: 0; z-index: 10; }\n";
+        outFile << "td { padding: 18px 15px; border-bottom: 1px solid #e0e6ed; transition: all 0.3s ease; }\n";
+        outFile << "tr:hover { background: linear-gradient(135deg, #f8f9ff 0%, #e8f4fd 100%); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }\n";
+        outFile << "tr:nth-child(even) { background: #f8fafc; }\n";
+        outFile << "tr:nth-child(even):hover { background: linear-gradient(135deg, #f0f7ff 0%, #e0f2fe 100%); }\n";
+        outFile << ".contact-name { font-weight: 600; color: #2563eb; }\n";
+        outFile << ".contact-phone { color: #059669; font-weight: 500; }\n";
+        outFile << ".contact-email { color: #7c3aed; }\n";
+        outFile << ".contact-address { color: #dc2626; }\n";
+        outFile << ".stats { display: flex; justify-content: center; margin-bottom: 30px; gap: 20px; flex-wrap: wrap; }\n";
+        outFile << ".stat-card { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); padding: 20px; border-radius: 15px; text-align: center; min-width: 150px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); }\n";
+        outFile << ".stat-number { font-size: 2rem; font-weight: bold; color: #2563eb; }\n";
+        outFile << ".stat-label { color: #64748b; font-weight: 500; margin-top: 5px; }\n";
+        outFile << "footer { background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%); color: white; padding: 40px; text-align: center; }\n";
+        outFile << ".footer-content { max-width: 800px; margin: 0 auto; }\n";
+        outFile << ".footer-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 20px; color: #e2e8f0; }\n";
+        outFile << ".footer-info { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; margin-bottom: 30px; }\n";
+        outFile << ".footer-section h4 { color: #4facfe; margin-bottom: 10px; font-weight: 600; }\n";
+        outFile << ".footer-section p { color: #cbd5e0; line-height: 1.6; }\n";
+        outFile << ".footer-section a { color: #4facfe; text-decoration: none; font-weight: 500; transition: all 0.3s ease; }\n";
+        outFile << ".footer-section a:hover { color: #00f2fe; text-shadow: 0 0 10px rgba(79, 172, 254, 0.5); }\n";
+        outFile << ".footer-bottom { border-top: 1px solid #4a5568; padding-top: 20px; color: #a0aec0; }\n";
+        outFile << "@media (max-width: 768px) {\n";
+        outFile << "  body { padding: 10px; }\n";
+        outFile << "  .header h1 { font-size: 2rem; }\n";
+        outFile << "  .content { padding: 20px; }\n";
+        outFile << "  .stats { gap: 10px; }\n";
+        outFile << "  .stat-card { min-width: 120px; padding: 15px; }\n";
+        outFile << "  th, td { padding: 12px 8px; font-size: 14px; }\n";
+        outFile << "  .footer-info { flex-direction: column; text-align: center; }\n";
+        outFile << "}\n";
+        outFile << "@media (max-width: 480px) {\n";
+        outFile << "  .header h1 { font-size: 1.8rem; }\n";
+        outFile << "  .stat-card { min-width: 100px; }\n";
+        outFile << "  th, td { padding: 10px 6px; font-size: 13px; }\n";
+        outFile << "  .table-container { margin: 0 -10px; }\n";
+        outFile << "}\n";
+        outFile << "</style>\n";
+        outFile << "</head>\n";
+        outFile << "<body>\n";
+        outFile << "<div class=\"container\">\n";
+        outFile << "<div class=\"header\">\n";
+        outFile << "<h1>📱 Contact Manager</h1>\n";
+        outFile << "<p>Your Personal Contact Directory</p>\n";
+        outFile << "</div>\n";
+        outFile << "<div class=\"content\">\n";
+
+        int totalContacts = 0;
+        Contact* current = head;
+        while (current) {
+            totalContacts++;
+            current = current->next;
+        }
+
+        outFile << "<div class=\"stats\">\n";
+        outFile << "<div class=\"stat-card\">\n";
+        outFile << "<div class=\"stat-number\">" << totalContacts << "</div>\n";
+        outFile << "<div class=\"stat-label\">Total Contacts</div>\n";
+        outFile << "</div>\n";
+        outFile << "</div>\n";
+
+        if (totalContacts > 0) {
+            outFile << "<div class=\"table-container\">\n";
+            outFile << "<table>\n";
+            outFile << "<thead>\n";
+            outFile << "<tr>\n";
+            outFile << "<th>👤 Name</th>\n";
+            outFile << "<th>📞 Phone</th>\n";
+            outFile << "<th>📧 Email</th>\n";
+            outFile << "<th>🏠 Address</th>\n";
+            outFile << "</tr>\n";
+            outFile << "</thead>\n";
+            outFile << "<tbody>\n";
+
+            current = head;
+            while (current) {
+                outFile << "<tr>\n";
+                outFile << "<td class=\"contact-name\">" << current->name << "</td>\n";
+                outFile << "<td class=\"contact-phone\">" << current->phone << "</td>\n";
+                outFile << "<td class=\"contact-email\">" << current->email << "</td>\n";
+                outFile << "<td class=\"contact-address\">" << current->address << "</td>\n";
+                outFile << "</tr>\n";
+                current = current->next;
+            }
+
+            outFile << "</tbody>\n";
+            outFile << "</table>\n";
+            outFile << "</div>\n";
+        } else {
+            outFile << "<div style=\"text-align: center; padding: 60px 20px; color: #64748b;\">\n";
+            outFile << "<h3>No contacts available</h3>\n";
+            outFile << "<p>Add some contacts to see them here!</p>\n";
+            outFile << "</div>\n";
+        }
+
+        outFile << "</div>\n";
+        outFile << "</div>\n";
+        outFile << "<footer>\n";
+        outFile << "<div class=\"footer-content\">\n";
+        outFile << "<div class=\"footer-title\">Contact Manager</div>\n";
+        outFile << "<div class=\"footer-info\">\n";
+        outFile << "<div class=\"footer-section\">\n";
+        outFile << "<h4>Authority</h4>\n";
+        outFile << "<p>Abdullah Siddique</p>\n";
+        outFile << "</div>\n";
+        outFile << "<div class=\"footer-section\">\n";
+        outFile << "<h4>Contact</h4>\n";
+        outFile << "<p>siddiqueabdullah581@gmail.com</p>\n";
+        outFile << "</div>\n";
+        outFile << "<div class=\"footer-section\">\n";
+        outFile << "<h4>GitHub</h4>\n";
+        outFile << "<p><a href=\"https://github.com/Abdullah-Siddique\" target=\"_blank\">Abdullah Siddique</a></p>\n";
+        outFile << "</div>\n";
+        outFile << "</div>\n";
+        outFile << "<div class=\"footer-bottom\">\n";
+        outFile << "<p>© 2025 Contact Manager. All rights reserved.</p>\n";
+        outFile << "</div>\n";
+        outFile << "</div>\n";
+        outFile << "</footer>\n";
+        outFile << "</body>\n";
+        outFile << "</html>\n";
         outFile.close();
         cout << "Contacts saved to " << filename << "!\n";
     }
@@ -227,9 +384,14 @@ public:
             return;
         }
 
-        string name, phone, email, address;
-        while (getline(inFile, name) && getline(inFile, phone) && getline(inFile, email) && getline(inFile, address)) {
-            addContact(name, phone, email, address);
+        string name, phone, email, address, delimiter;
+        while (getline(inFile, name)) {
+            if (!getline(inFile, phone) || !getline(inFile, email) || !getline(inFile, address) || !getline(inFile, delimiter) || delimiter != "----") {
+                break;
+            }
+            if (!name.empty() && !phone.empty()) {
+                addContact(name, phone, email, address);
+            }
         }
         inFile.close();
         cout << "Contacts loaded from " << filename << "!\n";
@@ -323,12 +485,14 @@ int main() {
                 break;
 
             case 9:
-                cm.saveToFile("contacts.txt");
+                cm.saveToFile("contacts.html");
+                cm.saveToTextFile("contacts.txt");
                 break;
 
             case 10:
                 cout << "Exiting and saving contacts...\n";
-                cm.saveToFile("contacts.txt");
+                cm.saveToFile ("contacts.html");
+                cm.saveToTextFile("contacts.txt");
                 return 0;
 
             default:
