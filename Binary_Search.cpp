@@ -2,6 +2,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
+const double eps = 1e-7;
+
+double multiply(double x, double n){
+    double ans = 1.0;
+    for(ll i=0; i<n; i++)ans*=x;
+    return ans;
+}
 
 ll bin1(vector<ll>&a ,ll x){
     ll n = a.size();
@@ -43,7 +50,7 @@ ll lb(vector<ll>&a ,ll x){
     return ans;
 }
 
-double bin2(double x){
+double bin2(double x, double n){
     double l = 1.0, h = x;
     if(x < 0) return -1;
     else if(x < 1){
@@ -51,8 +58,8 @@ double bin2(double x){
     }
     while(h-l>eps){
         double m = (h+l)/2.0;
-        if(m*m == x) return m;
-        else if(m*m > x){
+        if(multiply(m, n) == x) return m;
+        else if(multiply(m, n) > x){
             h = m;
         }
         else l = m;
@@ -67,6 +74,6 @@ int main(){
     cout<<bin1(a, 9)<<"\n";
     cout<<ub(a, 13)<<"\n";
     cout<<lb(a, 13)<<"\n";
-    cout<<bin2(25)<<"\n";
+    cout<<fixed<<setprecision(6)<<bin2(27, 4)<<"\n";
     return 0;
 }
