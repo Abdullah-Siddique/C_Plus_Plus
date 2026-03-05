@@ -107,6 +107,21 @@ void p9(ll n){
     cout<<"\n";    
 }
 
+void p10(ll n){
+    for(ll i = 1; i<=n; i++){
+        for(ll j=1; j<=i; j++){
+            cout<<"*";
+        }
+        cout<<"\n";
+    }
+    for(ll i = n-1; i>0; i--){
+        for(ll j=1; j<=i; j++){
+            cout<<"*";
+        }
+        cout<<"\n";
+    }
+}
+
 
 int main(){
     ios::sync_with_stdio(false);
@@ -122,5 +137,6 @@ int main(){
     p7(n);
     p8(n);
     p9(n);
+    p10(n);
     return 0;
 }
