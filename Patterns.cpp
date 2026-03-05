@@ -10,6 +10,7 @@ void p1(ll n){
         }
         cout<<"\n";
     }
+    cout<<"\n";
 }
 
 void p2(ll n){
@@ -20,6 +21,7 @@ void p2(ll n){
         }
         cout<<"\n";
     }
+    cout<<"\n";
 }
 
 void p3(ll n){
@@ -30,6 +32,7 @@ void p3(ll n){
         }
         cout<<"\n";
     }
+    cout<<"\n";
 }
 
 void p4(ll n){
@@ -40,6 +43,7 @@ void p4(ll n){
         }
         cout<<"\n";
     }
+    cout<<"\n";
 }
 
 void p5(ll n){
@@ -50,6 +54,7 @@ void p5(ll n){
         }
         cout<<"\n";
     }
+    cout<<"\n";
 }
 
 void p6(ll n){
@@ -60,18 +65,48 @@ void p6(ll n){
         }
         cout<<"\n";
     }
+    cout<<"\n";
 }
 
 void p7(ll n){
-    
     cout<<"P7: \n";
-    if(n&1){
-         for(ll i=0; i<n; i++){
-             
-         }   
-    }
-    else cout<<"Not executable\n";
+        for(ll i=0; i<n; i++){
+            for(ll j = n-i-1; j>0; j--)cout<<" ";
+            for(ll j = 1; j<=2*i+1; j++)cout<<"*";
+            for(ll j = n-i-1; j>0; j--)cout<<" ";
+            cout<<"\n";
+        } 
+    cout<<"\n";    
 }
+
+void p8(ll n){
+    cout<<"P8: \n";
+        for(ll i=0; i<n; i++){
+            for(ll j = 1; j<=i; j++)cout<<" ";
+            for(ll j = 1; j<=2*(n-i)-1; j++)cout<<"*";
+            for(ll j = 1; j<=i; j++)cout<<" ";
+            cout<<"\n";
+        }
+    cout<<"\n";    
+}
+
+void p9(ll n){
+    cout<<"P9: \n";
+        for(ll i=0; i<n; i++){
+            for(ll j = n-i-1; j>0; j--)cout<<" ";
+            for(ll j = 1; j<=2*i+1; j++)cout<<"*";
+            for(ll j = n-i-1; j>0; j--)cout<<" ";
+            cout<<"\n";
+        }
+        for(ll i=0; i<n; i++){
+            for(ll j = 1; j<=i; j++)cout<<" ";
+            for(ll j = 1; j<=2*(n-i)-1; j++)cout<<"*";
+            for(ll j = 1; j<=i; j++)cout<<" ";
+            cout<<"\n";
+        }  
+    cout<<"\n";    
+}
+
 
 int main(){
     ios::sync_with_stdio(false);
@@ -85,5 +120,7 @@ int main(){
     p5(n);
     p6(n);
     p7(n);
+    p8(n);
+    p9(n);
     return 0;
 }
