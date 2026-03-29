@@ -1,3 +1,26 @@
+/*
+My example:
+7
+1 2
+1 5
+2 3
+2 4
+5 6
+6 7
+
+Output:
+BFS: 
+1 2 5 3 4 6 7 
+Level of node 0 is -1 
+Level of node 1 is 1 
+Level of node 2 is 2 
+Level of node 3 is 3 
+Level of node 4 is 3 
+Level of node 5 is 2 
+Level of node 6 is 3 
+Level of node 7 is 4 
+
+*/
 #include<bits/stdc++.h>
 using namespace std;
 using ll = long long;
