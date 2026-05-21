@@ -9,8 +9,8 @@ int main(){
     vector<bool>f(n+1, true);
     f[0] = f[1] = false; 
     for(ll i = 2; i <= n; i++){
-        for(ll j = i*i; j <= n; j += i){
-            f[j] = false;
+        for(ll j = 2 * i; j <= n; j += i){
+            if(f[j]) f[j] = false;
         }
     }
     cout<<"Number of prime numbers: "<<count(f.begin(), f.end(), true)<<"\n";
