@@ -8,7 +8,7 @@ int main(){
     cin>>n;
     vector<bool>f(n+1, true);
     f[0] = f[1] = false; 
-    for(ll i = 2; i <= n; i++){
+    for(ll i = 2; i * i <= n; i++){
         for(ll j = 2 * i; j <= n; j += i){
             if(f[j]) f[j] = false;
         }
