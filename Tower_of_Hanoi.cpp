@@ -12,7 +12,7 @@ void tower_of_hanoi(ll n, char start, char helper, char dest){
     // moving n - 1 discs from a to b with c 
     tower_of_hanoi(n - 1, start, dest, helper);
     
-    // moving larget discs from a to c 
+    // moving largest discs from a to c 
     cout << "Move disc " << n << " from " << start << " to " << dest << '\n';
     
     // moving remaining n - 1 discs from b to c with a
