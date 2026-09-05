@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 using ll = long long;
-const ll n = 4e5 + 5, inf = 1e9;
-vector<ll> tree(n, inf), a(n);
+const ll n = 1e5 + 5, inf = 1e9;
+vector<ll> tree(4 * n, inf), a(n);
 
 void build(ll node, ll start, ll end){
     if(start == end){
